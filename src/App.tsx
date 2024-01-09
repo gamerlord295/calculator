@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 
 import Button from "./Button";
 
@@ -23,14 +23,11 @@ const keys: string[] = [
 ];
 
 function App() {
-  const [result, setResult] = useState("");
-  useEffect(() => {
-    console.log(result);
-  }, [result]);
+  const [result, setResult] = useState<string>("");
 
   const getResults = () => {
     const newResult: string = eval(result);
-    setResult(newResult.toString());
+    setResult(newResult as string);
   };
 
   return (
