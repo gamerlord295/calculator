@@ -1,0 +1,31 @@
+.grid {
+  display: grid;
+  height: 300px;
+  width: 300px;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  grid-template:
+    ". . del del"
+    ". . . ."
+    ". . . ."
+    ". . . eql"
+    "zero zero . eql";
+}
+
+.button {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #fff solid 1px;
+  cursor: pointer;
+}
+
+.del {
+  grid-area: del;
+}
+.zero {
+  grid-area: zero;
+}
+.eql {
+  grid-area: eql;
+}
