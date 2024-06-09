@@ -1,3 +1,17 @@
+main {
+  background: black;
+  padding: 32px;
+  width: fit-content;
+  border-radius: 16px;
+}
+
+.err {
+  color: red;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
 .grid {
   display: grid;
   height: 300px;
@@ -9,6 +23,20 @@
     ". . . ."
     ". . . eql"
     "zero zero . eql";
+}
+
+h1 {
+  background: #4e4b4b;
+  color: #fff;
+  padding: 4px 8px;
+  width: calc(300px - 16px);
+  margin-top: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  border-radius: 4px;
+
 }
 
 .button {

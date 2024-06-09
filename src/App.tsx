@@ -24,31 +24,41 @@ const keys: string[] = [
 
 function App() {
   const [result, setResult] = useState<string>("");
+  const [err, setErr] = useState<string>("");
 
   const getResults = () => {
-    const newResult: string = eval(result);
-    setResult(newResult as string);
+    try {
+      const newResult: string = eval(result);
+      setResult(`${newResult}`);
+    }
+    catch {
+      setErr("Syntax Error");
+    }
   };
 
   return (
     <>
-      <h1 style={{width: "300px", height: "fit-content"}}>{result || 0}</h1>
-      <div className="grid">
-      <div className="button  del" onClick={() => setResult(prev => prev.slice(0, -1))}>del</div>
-        {keys.map(
-          (key: string): ReactNode => (
-            <Button
-              setResult={setResult}
-              key={key}
-              className={key === "0" ? "zero" : null}
-              label={key}
-            />
-          )
-        )}
-        <div className="button eql" onClick={getResults}>
-          =
+      <div className="err">{err}</div>
+      <main>
+        <h1>{result || 0}</h1>
+        <div className="grid">
+          <div className="button  del" onClick={() => setResult(prev => prev.slice(0, -1))}>del</div>
+          {keys.map(
+            (key: string): ReactNode => (
+              <Button
+                setResult={setResult}
+                setErr={setErr}
+                key={key}
+                className={key === "0" ? "zero" : null}
+                label={key}
+              />
+            )
+          )}
+          <div className="button eql" onClick={getResults}>
+            =
+          </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }
